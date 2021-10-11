@@ -42,14 +42,14 @@
     </div>
 
 
-    <div class="site-navbar-wrap js-site-navbar bg-blue">
+    <div class="site-navbar-wrap js-site-navbar" style="color: #ffffff;background-color: #2980b9 !important;">
 
       <div class="container">
-        <div class="site-navbar bg-light">
+        <div class="site-navbar" style="color: #ffffff;background-color: #2980b9 !important;">
           <div class="py-1">
             <div class="row align-items-center">
               <div class="col-2">
-                <h2 class="brand"><a href="http://127.0.0.1:8000"><strong style="color:#ffffff;">COLLEGE PLACEMENT</strong> </a></h2>
+                <h2 class="brand"><a href="http://127.0.0.1:8000"><strong style="color: #ffffff;background-color: #2980b9 !important;">COLLEGE RECRUITMENT</strong> </a></h2>
               </div>
               <div class="col-10">
                 <nav class="site-navigation text-right" role="navigation">
@@ -60,7 +60,7 @@
                       <li><a href="#">{% if user.is_authenticated %}
                         <a href="http://127.0.0.1:8000/logout/"> Hi {{ user.username }}! logout</a>
                         {% else %}
-                        <p style="color:grey">You are not logged in</p>
+                        <p style="color:#ffffff">Not logged in</p>
                         {% endif %}</a></li>
 
                     
@@ -79,7 +79,7 @@
 
     {% endblock %}
 
-    <footer class="site-footer">
+    <!-- <footer class="site-footer">
       <div class="container">
         <div class="row">
           <div class="col-md-4">
@@ -129,14 +129,14 @@
         <div class="row pt-5 mt-5 text-center">
           <div class="col-md-12">
             <p>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy; <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> All Rights Reserved | placement cell IIT-BHU
+            < Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. 
+            < Copyright &copy; <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> All Rights Reserved | placement cell IIT-BHU
             </p>
           </div>
 
         </div>
-      </div>
-    </footer>
+      </div> -->
+    <!-- </footer>  -->
     <script src="{% static "portal/js/jquery-3.3.1.min.js" %}"></script>
   <script src="{% static "portal/js/jquery-migrate-3.0.1.min.js" %}"></script>
   <script src="{% static "portal/js/jquery-ui.js" %}"></script>
