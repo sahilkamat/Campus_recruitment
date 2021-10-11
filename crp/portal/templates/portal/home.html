@@ -19,17 +19,23 @@
     <link rel="stylesheet" href="{% static "portal/css/aos.css" %}">
     <link rel="stylesheet" href="{% static "portal/css/style.css" %}">
 
+    <style>
+      .overlay {
+        background:url("{% static 'portal/images/hero_1.jpg' %}") no-repeat center center/cover;
+      }
+    </style>
+
   </head>
   <body>
 
-    <div class="site-navbar-wrap js-site-navbar bg-white">
-
+    <div class="site-navbar-wrap js-site-navbar" style="background-color: #2980b9 !important;">
+     <div class="navbar-container">
       <div class="container">
-        <div class="site-navbar bg-light">
+        <div class="site-navbar" style="background-color: #2980b9 !important;">
           <div class="py-1">
             <div class="row align-items-center">
               <div class="col-2">
-                <h2 class="brand"><a href="http://127.0.0.1:8000"><strong>COLLEGE PLACEMENT</strong> </a></h2>
+                <h2 class="brand"><a href="http://127.0.0.1:8000"><strong style="color: #ffffff;background-color: #2980b9 !important;">COLLEGE RECRUITMENT</strong> </a></h2>
               </div>
               <div class="col-10">
                 <nav class="site-navigation text-right" role="navigation">
@@ -39,21 +45,21 @@
                     <ul class="site-menu js-clone-nav d-none d-lg-block">
                         {% if user.is_authenticated %}
                         <li>
-                            <a href=" http://127.0.0.1:8000/company/company_login/">Company</a>
+                            <a href=" http://127.0.0.1:8000/company/company_login/" style="color:white">Company</a>
                           </li>
-                        <li><a href="http://127.0.0.1:8000/student/student_login/">student</a></li>
+                        <li><a href="http://127.0.0.1:8000/student/student_login/" style="color:white">student</a></li>
                         {% else %}
-                      <li><a href="http://127.0.0.1:8000/student/student_login/">Candidate Login</a></li>
+                      <li><a href="http://127.0.0.1:8000/student/student_login/" style="color:white">Candidate Login</a></li>
                       <li>
-                        <a href=" http://127.0.0.1:8000/company/company_login/">Company Login</a>
+                        <a href=" http://127.0.0.1:8000/company/company_login/" style="color:white">Company Login</a>
                       </li>
-                      <li><a href="http://127.0.0.1:8000/admin">Admin</a></li>
+                      <li><a href="http://127.0.0.1:8000/admin" style="color:white">Admin</a></li>
                       
                       {% endif %}
                       <li><a href="#">{% if user.is_authenticated %}
-                        <a href="http://127.0.0.1:8000/logout/"> Hi {{ user.username }}! logout</a>
+                        <a href="http://127.0.0.1:8000/logout/" style="color:white"> Hi {{ user.username }}! logout</a>
                         {% else %}
-                        <p style="color:grey">You are not logged in</p>
+                        <p style="color:white">You are not logged in</p>
                         {% endif %}</a></li>
 
                     
@@ -65,10 +71,11 @@
           </div>
         </div>
       </div>
+      </div>
     </div>
     <div style="height: 80px;"></div>
 
-    <div class="site-blocks-cover overlay" style="background-image: url({% static "portal/images/hero_1.jpg"%})"; data-aos="fade" data-stellar-background-ratio="0.5">
+    <div class="site-blocks-cover overlay"; data-aos="fade" data-stellar-background-ratio="0.5">
 
     </div>
 
@@ -86,7 +93,7 @@
       
 
 
-<div class="nonloop-block-15 owl-carousel">
+<!-- <div class="nonloop-block-15 owl-carousel">
   <div class="media-with-text">
     <div class="img-border-sm mb-4">
       <a href="https://www.amazon.com/" class="image-play">
@@ -164,13 +171,13 @@
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio dolores culpa qui aliquam placeat nobis veritatis tempora natus rerum obcaecati.</p>
   </div>
   
-</div>
+</div> -->
 
 </div>
 </div>
 
   
-    <footer class="site-footer">
+    <!-- <footer class="site-footer">
       <div class="container">
 
 
@@ -228,7 +235,7 @@
 
         </div>
       </div>
-    </footer>
+    </footer> -->
     
 
     
