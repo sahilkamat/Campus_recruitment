@@ -18,6 +18,7 @@ body {
     background-repeat: repeat;
     max-height: 100%;
     max-width: 100%;
+    background-color: #71d8ef !important;
 }
 ol {
 	padding-left: 1.4em;

@@ -42,8 +42,12 @@ class StudentDetails(models.Model):
     dob = models.DateField(blank=False, help_text='*format is YYYY-MM-DD', )
     email = models.EmailField(max_length=254, blank=False, help_text='Required. Inform a valid email address.',default="anudeep.insvirat@gmail.com")
 
+
     def __str__(self):
        return self.username
+    
+    class Meta:
+        verbose_name_plural="StudentDetails"
 
 
 class CompanyDetails(models.Model):
@@ -59,6 +63,9 @@ class CompanyDetails(models.Model):
 
     def __str__(self):
         return self.username
+
+    class Meta:
+        verbose_name_plural="CompanyDetails"
 
 class JobPosition(models.Model):
     job_id=models.CharField(max_length=30, blank=False, help_text='*required',unique=True)
@@ -77,6 +84,9 @@ class JobPosition(models.Model):
 
     def __str__(self):
         return self.job_id
+    
+    class Meta:
+        verbose_name_plural="JobPosition"
 
 
 class AppliedJobs(models.Model):
@@ -86,4 +96,7 @@ class AppliedJobs(models.Model):
 
     def __str__(self):
         return self.job_id
+
+    class Meta:
+        verbose_name_plural="AppliedJobs"
 
