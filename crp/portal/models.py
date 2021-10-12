@@ -24,15 +24,15 @@ class StudentDetails(models.Model):
         ('female', 'female'),
         ('others','others'))
 
-    username=models.CharField(max_length=9,blank=False,help_text="enter username ex:y16it***",default="y1")
-    name = models.CharField(max_length=30, blank=False, help_text='*required',default="full name")
+    username=models.CharField(max_length=9,blank=False,help_text="enter username ex:y16it***",default="y1", null=True)
+    name = models.CharField(max_length=30, blank=False, help_text='*required',default="full name" , null=True)
     phone_number = models.CharField(validators=[MaxLengthValidator(10),MinLengthValidator(10)] ,help_text='*required',max_length=10)
     fathers_name = models.CharField(max_length=30, blank=False, help_text='*required')
     mothers_name = models.CharField(max_length=30, blank=False, help_text='*required')
     gender=models.CharField(blank=False, choices=gender,max_length=10)
     place = models.CharField(max_length=30, blank=False)
-    branch = models.CharField(blank=False, choices=branch_choices, max_length=10)
-    cgpa_Btech = models.FloatField(validators=[MinValueValidator(0),MaxValueValidator(10)],blank=False,help_text='*required')
+    branch = models.CharField(blank=False, choices=branch_choices, max_length=10, null=True)
+    cgpa_Btech = models.FloatField(validators=[MinValueValidator(0),MaxValueValidator(10)],blank=False,help_text='*required' , null=True)
     class_10_cgpa = models.FloatField(validators=[MinValueValidator(0),MaxValueValidator(10)],blank=False,help_text='*required')
     class_12_percentage = models.FloatField(validators=[MinValueValidator(0),MaxValueValidator(100)],blank=False,help_text='*required')
     certifications_count = models.IntegerField(blank=False)
@@ -40,7 +40,7 @@ class StudentDetails(models.Model):
     languages = models.CharField(max_length=100, blank=False, help_text='*required')
     sop = models.CharField(max_length=500, default="statement of purpose", help_text='*required')
     dob = models.DateField(blank=False, help_text='*format is YYYY-MM-DD', )
-    email = models.EmailField(max_length=254, blank=False, help_text='Required. Inform a valid email address.',default="anudeep.insvirat@gmail.com")
+    email = models.EmailField(max_length=254, blank=False, help_text='Required. Inform a valid email address.', null=True)
 
 
     def __str__(self):

@@ -4,3 +4,4 @@ admin.site.register(StudentDetails)
 admin.site.register(CompanyDetails)
 admin.site.register(JobPosition)
 admin.site.register(AppliedJobs)
+        

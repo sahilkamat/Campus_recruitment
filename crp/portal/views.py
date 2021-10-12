@@ -72,7 +72,7 @@ def usd(request):
             form=UsdForm(request.POST)
             if form.is_valid():
                 stu = request.user.username
-                post = StudentDetails.objects.filter(username=stu)
+                
                 x= request.POST.get('sop')
                 y=request.POST.get('phone_number')
                 db=request.POST.get('dob')
@@ -90,29 +90,72 @@ def usd(request):
                 mn=request.POST.get('mothers_name')
                 name=request.POST.get('name')
 
-                j=post[0]
-                j.sop =x
-                j.phone_number = y
-                j.dob=db
-                j.email=e
-                j.languages=l
-                j.certifications_count=cc
-                j.internship=i
-                j.class_12_percentage=c12
-                j.class_10_cgpa=c10
-                j.branch=b
-                j.cgpa_Btech=cb
-                j.place=p
-                j.gender=g
-                j.fathers_name=fn
-                j.mothers_name=mn
-                j.name=name
-                j.save()
+                post = StudentDetails.objects.create(
+                    username=stu, 
+                    # name=name, 
+                    phone_number=y, 
+                    fathers_name=fn, 
+                    mothers_name=mn, 
+                    gender=g,
+                    place=p,
+                    # branch=b,
+                    # cgpa_Btech=cb,
+                    class_10_cgpa=c10,
+                    class_12_percentage=c12,
+                    certifications_count=cc,
+                    internship=i,
+                    languages=l,
+                    sop=x,
+                    dob=db,
+                    email=e,
+                    )
+
+                post.save()
                 return render(request, 'portal/stulog.html')
 
     else:
         stu = request.user.username
         post = StudentDetails.objects.filter(username=stu)
+        
+        if len(post) != 0:
+            print(20*'@', stu, StudentDetails.objects.filter(username=stu))
+            x = post[0].sop
+            x=str(x)
+            y = post[0].phone_number
+            print(x,y,post)
+            form=UsdForm()
+            db=post[0].dob
+            e=post[0].email
+            l=post[0].languages 
+            cc=post[0].certifications_count
+            i=post[0].internship
+            c12=post[0].class_12_percentage
+            c10=post[0].class_10_cgpa
+            b=post[0].branch
+            cb=post[0].cgpa_Btech
+            p=post[0].place
+            g=post[0].gender
+            fn=post[0].fathers_name
+            mn=post[0].mothers_name
+            name=post[0].name
+            context={'form': form,'x':x,'y':y,'db': db,"e":e,"l":l,"cc":cc,"i":i,"c12":c12,"c10":c10,"b":b,"cb":cb,"p":p,"g":g,"fn":fn,"mn":mn,"name":name}
+            return render(request, 'portal/usd.html',context)
+
+        else:
+            context={'form': '' ,'x':'','y':'','db': '',"e":'',"l":'',"cc":'',"i":'',"c12":'',"c10":'',"b":'',"cb":'',"p":'',"g":'',"fn":'',"mn":'',"name":''}
+            return render(request, 'portal/usd.html', context)
+ else:
+     return HttpResponse("<h1>u r not logged in</h1>")
+
+
+
+def dispstu(request):
+    if request.user.is_authenticated and request.user.groups.filter(name='student').exists():
+        stu = request.user.username
+        post = StudentDetails.objects.filter(username=stu)
+        print(StudentDetails.objects.filter(username=stu))
+        form=dispstuForm()
+
         x = post[0].sop
         x=str(x)
         y = post[0].phone_number
@@ -132,19 +175,8 @@ def usd(request):
         fn=post[0].fathers_name
         mn=post[0].mothers_name
         name=post[0].name
-        context={'form': form,'x':x,'y':y,'db': db,"e":e,"l":l,"cc":cc,"i":i,"c12":c12,"c10":c10,"b":b,"cb":cb,"p":p,"g":g,"fn":fn,"mn":mn,"name":name}
-        return render(request, 'portal/usd.html',context)
- else:
-     return HttpResponse("<h1>u r not logged in</h1>")
-
-
-
-def dispstu(request):
-    if request.user.is_authenticated and request.user.groups.filter(name='student').exists():
-        stu = request.user.username
-        post = StudentDetails.objects.filter(username=stu)
-        form=dispstuForm()
-        return render(request, 'portal/dispstu.html', {'form': form, 'post': post})
+    
+        return render(request, 'portal/dispstu.html', {'form': form, "uname": stu, 'x':x,'y':y,'db': db,"e":e,"l":l,"cc":cc,"i":i,"c12":c12,"c10":c10,"b":b,"cb":cb,"p":p,"g":g,"fn":fn,"mn":mn,"name":name})
     else:
         return HttpResponse("<h1>u r not logged in</h1>")
 
