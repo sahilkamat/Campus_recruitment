@@ -212,13 +212,6 @@ a {
   position: relative; }
   .input-wrap input {
     padding-right: 50px; }
-  .input-wrap .icon {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%); }
 
 /* Navbar */
 .site-navbar-wrap {
