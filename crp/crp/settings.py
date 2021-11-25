@@ -25,7 +25,7 @@ SECRET_KEY = ')rsoh4lu^hwo6n^q8#559j!4vs!j2#4z^u8sa@1gg*h--^61jt'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -51,6 +51,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
 ]
 
 ROOT_URLCONF = 'crp.urls'
@@ -128,3 +130,14 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'iwproj25@gmail.com' 
 EMAIL_HOST_PASSWORD = 'Iwpcrp@123'
+
+PROJECT_ROOT = os.part.join(os.path.abspath(__file__))
+STATIC_ROOT = os.part.join(PROJECT_ROOT, "staticfiles")
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (os.path.join(PROJECT_ROOT, 'static'), )
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+import dj_database_url
+
+prod_db  =  dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(prod_db)
