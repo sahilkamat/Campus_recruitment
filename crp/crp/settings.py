@@ -131,8 +131,8 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'iwproj25@gmail.com' 
 EMAIL_HOST_PASSWORD = 'Iwpcrp@123'
 
-PROJECT_ROOT = os.part.join(os.path.abspath(__file__))
-STATIC_ROOT = os.part.join(PROJECT_ROOT, "staticfiles")
+PROJECT_ROOT = os.path.join(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_ROOT, "staticfiles")
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(PROJECT_ROOT, 'static'), )
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
