@@ -62,11 +62,11 @@ body {
 }
 </style>
 <div class="topnav" id="myTopnav">
-<a class="active" href="http://127.0.0.1:8000/">Home</a>
-<a  class="active" href="http://127.0.0.1:8000/student/student_login/">student login</a>
-<a  class="active" href=" http://127.0.0.1:8000/company/company_login/">comapny login</a>
+<a class="active" href="/">Home</a>
+<a  class="active" href="/student/student_login/">student login</a>
+<a  class="active" href=" /company/company_login/">comapny login</a>
 {% if user.is_authenticated %}
-<a href="http://127.0.0.1:8000/logout/">Hi {{ user.username }}! logout</a>
+<a href="/logout/">Hi {{ user.username }}! logout</a>
 {% else %}
 <p >You are not logged in</p>
 {% endif %}

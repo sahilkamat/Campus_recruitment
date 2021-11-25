@@ -46,7 +46,7 @@
           <div class="py-1">
             <div class="row align-items-center">
               <div class="col-2">
-                <h2 class="brand"><a href="http://127.0.0.1:8000"><strong style="color: #ffffff;background-color: #2980b9 !important;">COLLEGE RECRUITMENT</strong> </a></h2>
+                <h2 class="brand"><a href="/"><strong style="color: #ffffff;background-color: #2980b9 !important;">COLLEGE RECRUITMENT</strong> </a></h2>
               </div>
               <div class="col-10">
                 <nav class="site-navigation text-right" role="navigation">
@@ -55,7 +55,7 @@
 
                     <ul class="site-menu js-clone-nav d-none d-lg-block">
                       <li><a href="#">{% if user.is_authenticated %}
-                        <a href="http://127.0.0.1:8000/logout/" style="color: #ffffff;"> Hi {{ user.username }}! logout</a>
+                        <a href="/logout/" style="color: #ffffff;"> Hi {{ user.username }}! logout</a>
                         {% else %}
                         <p style="color:#ffffff">Not logged in</p>
                         {% endif %}</a></li>
