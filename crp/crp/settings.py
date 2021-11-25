@@ -131,10 +131,9 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'iwproj25@gmail.com' 
 EMAIL_HOST_PASSWORD = 'Iwpcrp@123'
 
-PROJECT_ROOT = os.path.join(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_ROOT, "staticfiles")
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(PROJECT_ROOT, 'static'), )
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 import dj_database_url
