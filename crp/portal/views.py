@@ -14,7 +14,6 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.views.generic import TemplateView
 from django.utils.decorators import method_decorator
 
-# Create your views here
 def  student_login(request):
     if request.user.is_authenticated and request.user.groups.filter(name='student').exists():
         return render(request,'portal/stulog.html')
@@ -92,14 +91,14 @@ def usd(request):
 
                 post = StudentDetails.objects.create(
                     username=stu, 
-                    # name=name, 
+                    name=name, 
                     phone_number=y, 
                     fathers_name=fn, 
                     mothers_name=mn, 
                     gender=g,
                     place=p,
-                    # branch=b,
-                    # cgpa_Btech=cb,
+                    branch=b,
+                    cgpa_Btech=cb,
                     class_10_cgpa=c10,
                     class_12_percentage=c12,
                     certifications_count=cc,
@@ -482,9 +481,8 @@ def stumail(request,opt):
             name=StudentDetails.objects.filter(username=opt)[0].name
             p=request.user.username
             p=CompanyDetails.objects.filter(username=p)[0].company_name
-            print(recv,p)
-            subject="call letter from "+p
-            body="Congratlations!!!"+str(name)+" you are selected for the interview ,the date for the interview will be anounced by your Placement Officer"
+            subject="Shortlisting letter from "+p+" Company"
+            body="Congratulations!!"+" "+str(name)+"\nYou are shortlisted for the interview at"+" "+str(p)+". The date for the interview will be announced by your College Placement Cell \nThank You"
             email = EmailMessage(subject, body, to=[recv])
             email.send()
 
@@ -492,7 +490,6 @@ def stumail(request,opt):
 
 
         else:
-            print("hiiiii")
             x=StudentDetails.objects.filter(username=opt)
             print(x)
             return render(request,'portal/showstudent.html',{'post':x[0]})

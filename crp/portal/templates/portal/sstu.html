@@ -46,14 +46,14 @@
                           {% for i in l %}
                      <tr>
                          <td>{{ i.name }}</td>
-                     <td>{{ i.branch }}</td>
                      <td>{{ i.gender }}</td>
+                     <td>{{ i.branch }}</td>
                      <td>{{ i.class_10_cgpa }}</td>
                          <td>{{ i.class_12_percentage }}</td>
                          <td>{{ i.cgpa_Btech }}</td>
                          <td>{{ i.certifications_count }}</td>
                          <td>{{ i.internship }}</td>
-                         <td><a href="http://127.0.0.1:8000/company/company_login/selectstu/{{ i.username}}/" target="popup" onclick="window.open('http://127.0.0.1:8000/company/company_login/selectstu/{{ i.username}}/','popup','width=600,height=600'); return false;" style="">Select</a></td>
+                         <td><a href="http://127.0.0.1:8000/company/company_login/selectstu/{{ i.username}}/" target="popup" onclick="window.open('http://127.0.0.1:8000/company/company_login/selectstu/{{ i.username}}/','popup','width=1000,height=1000'); return false;" style="">Select</a></td>
                      </tr>
                      {% endfor %}
                       {% endfor %}
