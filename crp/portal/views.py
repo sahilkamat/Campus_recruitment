@@ -41,7 +41,7 @@ def  home(request):
 def pagelogout(request):
         logout(request)
 
-        return redirect('http://127.0.0.1:8000/')
+        return redirect('/')
 
 
 def student_register(request):
@@ -55,7 +55,7 @@ def student_register(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-            return redirect('http://127.0.0.1:8000/student/student_login/')
+            return redirect('/student/student_login/')
 
         else:
             return render(request, 'portal/register.html', {'form': form})
@@ -203,7 +203,7 @@ def company_register(request):
             a.save()
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-            return redirect('http://127.0.0.1:8000/')
+            return redirect('/')
         else:
             return render(request, 'portal/register1.html', {'form': form})
 
